@@ -3,7 +3,6 @@ import EvoCard from "./EvoCard";
 import SpriteCard from "./SpriteCard";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { Pokemon } from "@/types/pokemon";
-import { Basic } from "next/font/google";
 import BasicInfo from "./BasicInfo";
 import Link from "next/link";
 
@@ -133,10 +132,14 @@ const PokemonDetail = ({
             <h3 className="text-2xl font-bold mb-4 text-gray-800">
               Evolution Chain
             </h3>
-            <Link prefetch={false} href={`/pokemon/${pokemon.name}`} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 items-center gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 items-center gap-2">
               {pokemon.evolution_chain &&
-                pokemon.evolution_chain.map((v, i) => <EvoCard pokemon={v} />)}
-            </Link>
+                pokemon.evolution_chain.map((v, i) => (
+                  <Link prefetch={false} href={`/pokemon/${v.name}`} key={i}>
+                    <EvoCard pokemon={v} />
+                  </Link>
+                ))}
+            </div>
           </div>
         </div>
       </div>
