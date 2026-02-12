@@ -72,17 +72,20 @@ const PokemonDetail = ({
             <h2 className="text-2xl font-bold mb-4 text-gray-800">Sprites</h2>
             <div className="grid grid-cols-3 gap-4">
               <SpriteCard
-                pokemon={pokemon}
+                image={pokemon.sprites.front_default}
+                name={pokemon.name}
                 text="Front"
                 className="from-gray-100 to-gray-200"
               />
               <SpriteCard
-                pokemon={pokemon}
+                image={pokemon.sprites.back_default}
+                name={pokemon.name}
                 text="Back"
                 className="from-gray-100 to-gray-200"
               />
               <SpriteCard
-                pokemon={pokemon}
+                image={pokemon.sprites.front_shiny}
+                name={pokemon.name}
                 text="Shiny"
                 className="from-yellow-100 to-yellow-200"
               />
